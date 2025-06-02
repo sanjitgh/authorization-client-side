@@ -144,7 +144,7 @@ export default function SignupForm() {
           type="submit"
           className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 cursor-pointer rounded w-full flex justify-center items-center"
         >
-          {loading ? <LoadingSpinner /> : "Sign Up"}
+          {loading ? <LoadingSpinner colorCode={"#e3e3e3"} /> : "Sign Up"}
         </button>
       </div>
 

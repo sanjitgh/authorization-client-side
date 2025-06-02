@@ -6,6 +6,7 @@ import SignInFrom from "../pages/Signin";
 import SignupForm from "../pages/SignUp";
 import Error404 from "../pages/Error404";
 import DashboardLayout from "../layout/DashboardLayout";
+import PrivetRoute from "../privetRoute/PrivetRoute";
 
 const router = createBrowserRouter([
   // Home route
@@ -32,12 +33,20 @@ const router = createBrowserRouter([
   //   Dashboard route
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivetRoute>
+        <DashboardLayout />
+      </PrivetRoute>
+    ),
     errorElement: <Error404 />,
     children: [
       {
         path: "/dashboard",
-        element: <DashboardHome />,
+        element: (
+          <PrivetRoute>
+            <DashboardHome />
+          </PrivetRoute>
+        ),
       },
     ],
   },
