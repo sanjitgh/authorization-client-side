@@ -1,11 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function SignupForm() {
   const [shopNames, setShopNames] = useState([""]);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleShopNameChange = (index, value) => {
     const updatedShops = [...shopNames];
@@ -62,8 +65,7 @@ export default function SignupForm() {
       shopNames,
     };
 
-    // loading state
-    setLoading(true);
+    setLoading(true); // loading state
 
     try {
       const res = await axios.post(
@@ -77,6 +79,7 @@ export default function SignupForm() {
         e.target.reset();
         setMessage("");
         setLoading(false);
+        navigate("/signin");
       }
     } catch (err) {
       toast.error(err.response.data.message);
@@ -139,9 +142,9 @@ export default function SignupForm() {
       <div className="flex justify-end">
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 cursor-pointer rounded w-full"
+          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 cursor-pointer rounded w-full flex justify-center items-center"
         >
-          Sign Up{loading && "..."}
+          {loading ? <LoadingSpinner /> : "Sign Up"}
         </button>
       </div>
 
