@@ -35,4 +35,4 @@ git clone https://github.com/sanjitgh/authorization-client-side.git
 cd grentify
 ```
 
-- **Note**: If you run it localhost, You need to change some configaration, insite the router.jsx file cheange !isSubdomain function just skip ! sign.
+- **Note**: If you run it localhost, You need to change some configaration, inside the router.jsx file cheange !isSubdomain function, just skip ! (not) sign.
