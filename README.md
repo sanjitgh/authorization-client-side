@@ -32,7 +32,7 @@ Auth is a full-stack authentication application built with React, Express, and M
 
 ```bash
 git clone https://github.com/sanjitgh/authorization-client-side.git
-cd grentify
+cd authorization-client-side
 ```
 
 - **Note**: If you run it localhost, You need to change some configaration, inside the router.jsx file cheange !isSubdomain function, just skip ! (not) sign.
