@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProfileIcon from "./ProfileIcon";
 import { useAuth } from "../context/AuthContext";
 import LogoutComfirmationModal from "./LogoutComfirmationModal";
+import { Link } from "react-router-dom";
 
 export default function DashboardHeader() {
   const [close, setClose] = useState(false);
