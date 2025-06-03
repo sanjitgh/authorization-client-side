@@ -10,30 +10,38 @@ import DashboardLayout from "../layout/DashboardLayout";
 import PrivetRoute from "../privetRoute/PrivetRoute";
 import SubDomainShopPage from "../pages/SubDomainShopPage";
 
-// Detect subdomain (ignoring localhost and www)
+// Get current hostname
 const hostname = window.location.hostname;
-const isLocalhost = hostname.endsWith("shop-auth");
+
+// Determine if it's a subdomain like shopname.localhost
 const isSubdomain = (() => {
   const parts = hostname.split(".");
-  if (isLocalhost) {
-    return parts.length === 2 && parts[0] !== "shop-auth";
-  } else {
-    // On Netlify with custom domain like shop1.mydomain.com
-    return parts.length > 2 && parts[0] !== "www";
-  }
+  return (
+    (hostname.includes("localhost") &&
+      parts.length === 2 &&
+      parts[0] !== "localhost") || 
+    (parts.length > 2 && parts[0] !== "www") 
+  );
 })();
 
-// Subdomain-only routing
+// Render SubDomainShopPage only for subdomains
 const routes = !isSubdomain
   ? [
+      {
+        path: "/",
+        element: <SubDomainShopPage />,
+        errorElement: <Error404 />,
+      },
+    ]
+  : [
       {
         path: "/",
         element: <HomeLayout />,
         errorElement: <Error404 />,
         children: [
           { index: true, element: <Home /> },
-          { path: "/signup", element: <SignupForm /> },
-          { path: "/signin", element: <SignInFrom /> },
+          { path: "signup", element: <SignupForm /> },
+          { path: "signin", element: <SignInFrom /> },
         ],
       },
       {
@@ -54,13 +62,6 @@ const routes = !isSubdomain
             ),
           },
         ],
-      },
-    ]
-  : [
-      {
-        path: "/",
-        element: <SubDomainShopPage />,
-        errorElement: <Error404 />,
       },
     ];
 

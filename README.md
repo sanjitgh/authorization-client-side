@@ -1,12 +1,38 @@
-# React + Vite
+# Auth
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Auth is a full-stack authentication application built with React, Express, and MongoDB. It provides secure user registration, login, and session handling using HTTP-only cookies. The app supports dynamic subdomains like `<shopname>.localhost`, with seamless cross-subdomain authentication.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> https://shop-auth-840db.web.app
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- 🧑‍💼 **User Authentication**
+  - Register and login functionality
+  - Session token stored in HTTP-only cookies
+  - Cross-subdomain
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React (Vite), Tailwind CSS
+- **Backend**: Express.js, MongoDB (native driver)
+- **Authentication**: Custom JWT-based system with HTTP-only cookies
+- **Hosting**: Firebase for front-end & API for vercel
+
+---
+
+## 🧑‍💻 Installation Guide
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/sanjitgh/authorization-client-side.git
+cd grentify
+```
+
+- **Note**: If you run it localhost, You need to change some configaration, insite the router.jsx file cheange !isSubdomain function just skip ! sign.

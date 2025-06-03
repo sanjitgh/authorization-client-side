@@ -40,7 +40,7 @@ export default function DashboardHeader() {
                     href={`http://${shopName
                       .trim()
                       .replace(/\s+/g, "")
-                      .toLowerCase()}.localhost:5173`}>
+                      .toLowerCase()}.shop-auth-840db.web.app`}>
                     {shopName}
                   </a>
                 </li>
